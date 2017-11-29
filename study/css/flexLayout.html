@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>flexLayout</title>
+    <link rel="stylesheet" href="./../../common/my/common.css">
+    <style>
+        body{
+            font-family:'KaiTi';
+            font-size: 18px;
+            user-select:text;
+            -webkit-user-select:text;
+            -moz-user-select:text;
+            -ms-user-select:text;
+        }
+        .marginRight{
+            margin-right:8px;
+        }
+        .textIndent{
+            display: inline-block;
+            width: 2em;
+        }
+        span.container{
+            display: inline-flex;
+            width: 100%;
+            border: 1px solid #ded0d0;
+            margin: 15px 0;
+        }
+        span.container>span{
+            display: block;
+            box-sizing:border-box;
+            width: 80px;
+            height:80px;
+            margin:3px;
+            text-align:center;
+            background: #87d0e4;
+            text-indent:0;
+        }
+        #secondDemo{
+            height:200px;
+        }
+        #secondDemo>span{
+            width:200px;
+            height:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>flex layout</h1>
+    </div>
+
+    <div class="studyContent">
+        <p>
+            <span class="blabel marginRight">浏览器兼容:</span>chrome:21+;Opera:12.1+;Firefox:22+;Safari:6.1+;IE:10+;(webkit内核的支持带-webkit-前缀的)
+        </p>
+        <p>
+            注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。<br/>
+            <span class="textIndent"></span>设置为flex布局后子元素会成为行内块级元素。
+        </p>
+        <p>
+            设置了display:flex;/display:inline-flex的称为容器，它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称"项目"。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis）。
+            主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。
+            项目默认沿主轴排列。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。<br/><br/>
+            <span class="blabel">容器可设置属性</span>有flex-direction，flex-wrap，flex-flow，justify-content，align-items，align-content;<br/><br/>
+
+            <span class="blabel">flex-direction</span>:属性决定主轴的方向（即项目的排列方向）。可能有以下四个值:<br/>
+            <span class="textIndent"></span>row（默认值）：主轴为水平方向，起点在左端。<br/>
+            <span class="textIndent"></span>row-reverse：主轴为水平方向，起点在右端。<br/>
+            <span class="textIndent"></span>column：主轴为垂直方向，起点在上沿。<br/>
+            <span class="textIndent"></span>column-reverse：主轴为垂直方向，起点在下沿。<br/>
+
+            <span class="blabel">flex-wrap</span>:属性定义，如果一行排不下，如何换行。可能有以下三个值(顺序都是从左到右):<br/>
+            <span class="textIndent"></span>nowrap（默认）：不换行。<br/>
+            <span class="textIndent"></span>wrap：换行，第一行在上方。<br/>
+            <span class="textIndent"></span>wrap-reverse：换行，第一行在下方。<br/>
+
+            <span class="blabel">flex-flow</span>属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。<br/>
+
+            <span class="blabel">justify-content</span>属性定义了项目在主轴上的对齐方式。可取以下五个值<br/>
+            <span class="textIndent"></span>flex-start（默认值）：左对齐<br/>
+            <span class="textIndent"></span>flex-end：右对齐<br/>
+            <span class="textIndent"></span>center： 居中<br/>
+            <span class="textIndent"></span>space-between：两端对齐，项目之间的间隔都相等。(第一个和最后一个靠边)<br/>
+            <span class="textIndent"></span>space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。<br/>
+
+            <span class="blabel">align-items</span>属性定义项目在交叉轴上如何对齐。<br/>
+            <span class="textIndent"></span>flex-start：交叉轴的起点对齐。<br/>
+            <span class="textIndent"></span>flex-end：交叉轴的终点对齐。<br/>
+            <span class="textIndent"></span>center：交叉轴的中点对齐(所有项目的中点)。<br/>
+            <span class="textIndent"></span>baseline: 项目的第一行文字的基线对齐。<br/>
+            <span class="textIndent"></span>stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。<br/>
+
+            <span class="blabel">align-content</span>属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用(该属性将一根轴线上的所有项目当成一个项目，所有方向均指垂直方向)。<br/>
+            <span class="textIndent"></span>flex-start：与交叉轴的起点对齐。<br/>
+            <span class="textIndent"></span>flex-end：与交叉轴的终点对齐。<br/>
+            <span class="textIndent"></span>center：与交叉轴的中点对齐。<br/>
+            <span class="textIndent"></span>space-between：与交叉轴两端对齐，轴线之间的间隔平均分布。<br/>
+            <span class="textIndent"></span>space-around：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。<br/>
+            <span class="textIndent"></span>stretch（默认值）：轴线占满整个交叉轴。<br/><br/>
+
+            <span class="setting1">
+                项目宽度(带单位):<input class="val1" style="width:40px;"  value="80" />容器高度(带单位):<input class="val8" style="width:40px;" /><br/>
+                属性设置:<br/>
+                flex-direction:
+                <select class="val2">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+                flex-wrap:
+                <select class="val3">
+                    <option value="nowrap">nowrap</option>
+                    <option value="wrap">wrap</option>
+                    <option value="wrap-reverse">wrap-reverse</option>
+                </select>
+                justify-content:
+                <select class="val4">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                </select>
+
+                align-items:
+                <select class="val5">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="baseline">baseline</option>
+                </select>
+                align-content:
+                <select class="val6">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                </select>
+                <button id="firstBtn">设置</button>
+            </span>
+            <span id="firstDemo" class="container">
+                <span style="padding-top:33px;">test</span>
+                <span style="height:40px;">test</span>
+                <span>test</span>
+                <span style="height:60px;padding-top:40px;">test</span>
+                <span style="height:100px;padding-top:30px;">test</span>
+                <span>test</span>
+                <span style="height:40px;">test</span>
+            </span>
+
+
+            <span class="blabel">项目可设置属性</span>有order，flex-grow，flex-shrink，flex-basis，flex，align-self;<br/><br/>
+
+            <span class="textIndent"></span><span class="blabel">order</span>属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。<br/>
+            <span class="textIndent"></span><span class="blabel">flex-grow</span>属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+            (数值的倍数差距即为大小差距,当空间不足时不够的项目会缩小足够的项目不缩小，不支持负值,项目不能设置高度)<br/>
+            <span class="textIndent"></span><span class="blabel">flex-basis</span>属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，
+            计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。(即设置宽度)<br/>
+            <span class="textIndent"></span><span class="blabel">flex</span>属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+            该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+            建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。<br/>
+            <span class="textIndent"></span><span class="blabel">align-self</span>属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+            auto | flex-start | flex-end | center | baseline | stretch;(垂直方向上)<br/><br/>
+
+            <span class="setting2">
+                项目宽度(带单位):<input class="val1" style="width:40px;" value="200" />容器高度(带单位):<input class="val8" style="width:40px;" value="200" /><br/>
+                属性设置:<br/>
+                flex-direction:
+                <select class="val2">
+                    <option value="row">row</option>
+                    <option value="row-reverse">row-reverse</option>
+                    <option value="column">column</option>
+                    <option value="column-reverse">column-reverse</option>
+                </select>
+                flex-wrap:
+                <select class="val3">
+                    <option value="nowrap">nowrap</option>
+                    <option value="wrap">wrap</option>
+                    <option value="wrap-reverse">wrap-reverse</option>
+                </select>
+                justify-content:
+                <select class="val4">
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                </select>
+
+                align-items:
+                <select class="val5">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="baseline">baseline</option>
+                </select>
+                align-content:
+                <select class="val6">
+                    <option value="stretch">stretch</option>
+                    <option value="flex-start">flex-start</option>
+                    <option value="flex-end">flex-end</option>
+                    <option value="center">center</option>
+                    <option value="space-between">space-between</option>
+                    <option value="space-around">space-around</option>
+                </select>
+                <button id="secondBtn">设置</button>
+            </span>
+            <span id="secondDemo" class="container">
+                <span style="order:3;flex-grow:2;align-self:flex-start;flex-basis:500px;">
+                    实际排序:1;<br/>
+                    order:3;<br/>
+                    倍数:2;<br/>
+                    对齐方式:flex-start;
+                </span>
+                <span style="order:3;flex-grow:1.5;align-self:center;flex-basis:200px;">
+                    实际排序:2;<br/>
+                    order:3;<br/>
+                    倍数:1.5;<br/>
+                    对齐方式:center;
+                </span>
+                <span style="order:2;flex-grow:0;align-self:stretch;flex-basis:200px;">
+                    实际排序:3;<br/>
+                    order:2;<br/>
+                    倍数:0;<br/>
+                    对齐方式:stretch;
+                </span>
+                <span style="order:6;flex-grow:1;align-self:baseline;flex-basis:200px;">
+                    实际排序:4;<br/>
+                    order:6;<br/>
+                    倍数:1;<br/>
+                    对齐方式:baseline;
+                </span>
+                <span style="order:0;flex-grow:0;align-self:flex-start;flex-basis:200px;">
+                    实际排序:5;<br/>
+                    order:0;<br/>
+                    倍数:0;<br/>
+                    对齐方式:flex-start;
+                </span>
+                <span style="order:0;flex-grow:0;align-self:auto;flex-basis:200px;">
+                    实际排序:6;<br/>
+                    order:0;<br/>
+                    倍数:0;<br/>
+                    对齐方式:auto;
+                </span>
+            </span>
+        </p>
+    </div>
+
+<script src="../../common/jquery/dist/jquery.js"></script>
+<script>
+    $('#firstBtn').click(function(){
+        $('#firstDemo span').css({
+            width: $('.setting1 .val1').val()||auto
+        });
+        $('#firstDemo').css({
+            height: $('.setting1 .val8').val()||'auto'
+        });
+        $('#firstDemo').css({
+            'flex-direction':$('.setting1 .val2').val(),
+            'flex-wrap':$('.setting1 .val3').val(),
+            'justify-content':$('.setting1 .val4').val(),
+            'align-items':$('.setting1 .val5').val(),
+            'align-content':$('.setting1 .val6').val(),
+        });
+    });
+
+
+    $('#secondBtn').click(function(){
+        $('#secondDemo span').css({
+            width: $('.setting2 .val1').val()+'px'
+        });
+        $('#secondDemo').css({
+            height: $('.setting2 .val8').val()||'auto'
+        });
+        $('#secondDemo').css({
+            'flex-direction':$('.setting2 .val2').val(),
+            'flex-wrap':$('.setting2 .val3').val(),
+            'justify-content':$('.setting2 .val4').val(),
+            'align-items':$('.setting2 .val5').val(),
+            'align-content':$('.setting2 .val6').val(),
+        });
+    });
+</script>
+</body>
+</html>

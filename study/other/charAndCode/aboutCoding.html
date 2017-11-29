@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>aboutCoding</title>
+    <link rel="stylesheet" href="../../../common/my/common.css">
+</head>
+<body>
+    <div class="header">
+        <h1>about coding</h1>
+    </div>
+    <div class="studyContent">
+        <section>
+            <p class="title">JS中的字符表示:</p>
+            <p contenteditable="true">
+                在JS中允许采用\uxxxx形式来表示一个字符串，xxxx表示unicode码点。此方法仅限于码点范围在\u0000~\uFFFF之间的字符，对于超出该范围的字符，
+                则需要两个双字节形式表示。若超出则会显示错误。<br>
+                <span class="textIndent"></span>JavaScript内部，字符以UTF-16的格式储存，每个字符固定为2个字节。对于那些需要4个字节储存的字符
+                （Unicode码点大于0xFFFF的字符），JavaScript会认为它们是两个字符。从而字符串判断错误。<br>
+                <pre><code>
+            console.log('\u20BB7'); //  ' 7'  超出范围理解为\u20BB+7而\u20BB不可打印导致出错要纠正此错误
+            console.log('\uD842\uDFB7');  // 𠮷 换成"\uD842\uDFB7"即可
+            var str = "𠮷"; // 该字的码点超出了范围正确码点为134071
+            str.length; // 2
+            str.charAt(0) // ''
+            str.charAt(1) // ''
+            str.charCodeAt(0) // 55362
+            str.charCodeAt(1) // 57271
+                </code></pre>
+                <span class="textIndent"></span><span class="red">ES6新增：</span>
+                对于上述的超出范围的字符，ES6中可将码点放入大括号即可正确解读。对于字符串码点获取错误ES6新增<span class="note">codePointAt</span>方法
+            该方法可正确返回4个字节的字符。由下面代码可以看出在第一个字符获取正常，但依旧有实际不存在第二个字符。这时可以使用for...of循环来正确识别32位的UTF-16字符。
+            <a href="aboutChar.html" target="_blank">一些特殊的字符</a>
+                <pre><code>
+            console.log('\u{20BB7}'); // 𠮷
+            var str = '𠮷2';
+            str.length;  //3
+            str.codePointAt(0); // 134071
+            str.codePointAt(1); //  57271
+            str.codePointAt(2);
+
+            "use strict";
+            for(let ch of str){
+                console.log(ch);// 𠮷 2
+                str.codePointAt(0).toString(16); // 转为16进制
+            }
+            for(var i = 0;i< str.length;i++) {
+                console.log(str[i]); // � � 2
+            }
+                </code></pre>
+            </p>
+        </section>
+        <section>
+            <p class="title">JS中的编码函数:</p>
+            <p>
+                大致有:charCodeAt,escape(),encodeURI(),encodeURIComponent();<br>
+                <span class="textIndent"></span><span class="note">charCodeAt()</span><span class="gray">(接受参数为字符串中的位置)</span>该方法用于返回指定位置Unicode编码，当返回的编码范围在ASCII码的范围时其返回的也是ASCII码。
+                编码后可以用fromCharCode()<span class="gray">(接受参数为编码，数组形式见下例)</span>方法解码还原<span class="gray">(该方法一样无法正确还原超出0xffff范围的码点，ES6中新增<span class="note">fromCodePoint</span>
+                方法可正确还原，用法与fromCharCode一致)</span>。
+
+            <pre><code>
+                var test = 'Hello 世界';
+                for(var i = 0;i&#60test.length;i++){
+                    console.log(test.charCodeAt(i));
+                }
+                // 输出结果为:72 101 108 108 111 32 19990 30028
+
+                console.log(String.fromCharCode(72,69,76,76,79));
+               // 输出结果为:hello
+            </code></pre>
+
+            </p>
+            <p>
+                <span class="note">escape()</span><span class="gray">(接受参数为字符串)</span>主要对字符串进行编码，其有69个字符不会编码:*，+，-，.，/，@，_，0-9，a-z，A-Z。解码函数为unescape()。
+                <span class="red">需要注意的是:</span>W3C已经已经废弃了该函数，所以不推荐使用！！
+            </p>
+            <p>
+                <span class="note">encodeURI()</span>和<span class="note">encodeURIComponent()</span>都是对url编码的函数<span class="gray">(接受参数均为字符串)</span>，不过两者的用处不一样，
+                对整个url编码使用encodeURI(),而当仅仅需要对url后面的参数编码时使用encodeURIComponent()。<br/>
+                encodeURI不编码的字符有82个:!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z;<br/>
+                encodeURIComponent不编码的字符有71个:!， '，(，)，*，-，.，_，~，0-9，a-z，A-Z;<br/>
+            <pre><code>
+                var first = encodeURI('http://www.baidu.com'),
+                    second = encodeURIComponent('http://www.baidu.com');
+                console.log(first);
+                console.log(second);
+                // 输出结果为:http://www.baidu.com
+                // 输出结果为:http%3A%2F%2Fwww.baidu.com
+            </code></pre><br/>
+            <span class="textIndent"></span>由上例可以看出经过encodeURI编码的url任然可用，而后者编码后的url则不可用了；因此在跳转链接时使用encodeURi编码，而传递参数时单独对参数模块使用encodeURIComponent编码，
+            单独对参数编码的好处是如果参数中含有#等特殊字符，编码后的url任然能够完整获取。<br/>
+            <span class="textIndent"></span>解码函数分别为:decodeURI(),decodeURIComponent();
+            </p>
+        </section>
+    </div>
+
+<script src="../../../common/my/pageFormat.js"></script>
+</body>
+</html>

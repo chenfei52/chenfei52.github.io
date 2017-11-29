@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>cssUnit</title>
+    <link rel="stylesheet" href="./../../common/my/common.css">
+    <style>
+        body{
+            font-family:'KaiTi';
+            font-size: 18px;
+            user-select:text;
+            -webkit-user-select:text;
+            -moz-user-select:text;
+            -ms-user-select:text;
+        }
+        .textIndent{
+            display: inline-block;
+            width: 2em;
+        }
+        .demo>span{
+            display:inline-block;
+            height:5px;
+            margin-right:20px;
+            vertical-align:middle;
+            background-color:#87d0e4;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Css Unit</h1>
+</div>
+
+<div class="studyContent">
+    <p>
+        <span class="blabel">px：</span>像素（Pixel）,<span class="note">相对长度单位</span>，像素是相对于显示器屏幕分辨率而言的。譬如，WINDOWS的用户所使用的分辨率一般是96像素/英寸。
+        而MAC的用户所使用的分辨率一般是72像素/英寸。
+    </p>
+    <p>
+        <span class="blabel">em：</span><span class="note">相对长度单位</span>。相对于当前对象内文本的字体尺寸。如当前行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+    </p>
+    <p>
+        <span class="blabel">rem：</span><span class="note">相对长度单位</span>。em相对于其父元素设置，实际应用中不可能知道每个父元素的字体大小，而rem则相对于根元素（html），即
+        我们只需要在html上设置一个参考值即可。<br/>
+        兼容性:IE9.0+,FireFox3.6+,Chrome4.0+,safari5.0+,Opera15.0+。
+    </p>
+    <p>
+        <span class="blabel">vh和vw：</span><span class="note">相对长度单位</span>。相对于视区宽高的比例总共为100。类似于百分比不过其相对的为视区宽高(window.innerWidth)。<br/>
+        兼容性:（IE9+(均不支持vmax),Edge12+(均不支持vmax),Firefox19+,chrom20+(~26+不支持vmax)，safari6+(6不支持vmax),Opera15+,）
+    </p>
+    <p>
+        <span class="blabel">vmax和vmin：</span><span class="note">相对长度单位</span>。相对于视口的宽度或高度中较大(较小)的那个。其中最大(小)的那个被均分为100单位的vmax(vmin)；
+    </p>
+    <p>
+        <span class="blabel">ex：</span><span class="note">相对长度单位</span>。相对于字符“x”的高度。此高度通常为字体尺寸的一半。如当前对行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸。
+        此单位不仅仅依靠font-size来确定还依靠font-family来确定大小。
+    </p>
+    <p>
+        <span class="blabel">ch：</span><span class="note">相对长度单位</span>。相对于数字“0”的高度。同ex一样不仅仅依靠font-size来确定还依靠font-family来确定大小。<br/>
+        兼容性:IE9.0+,FireFox2.0+,Chrome27.0+,safari7.0+,Opera15.0+。
+    </p>
+    <p>
+        <span class="blabel">pt：</span>点（Point），<span class="note">绝对长度单位</span>。
+    </p>
+    <p>
+        <span class="blabel">pc：</span>派卡（Pica），<span class="note">绝对长度单位</span>。相当于我国新四号铅字的尺寸。
+    </p>
+    <p>
+        <span class="blabel">in：</span>英寸（Inch），<span class="note">绝对长度单位</span>,1in = 2.54cm = 25.4 mm = 72pt = 6pc ；。
+    </p>
+    <p>
+        <span class="blabel">mm：</span>毫米（Millimeter），<span class="note">绝对长度单位</span>。
+    </p>
+    <p>
+        <span class="blabel">q：</span>1/4毫米（Millimeter），<span class="note">绝对长度单位</span>(无兼容)。
+    </p>
+    <p>
+        <span class="blabel">cm：</span>厘米（Centimeter），<span class="note">绝对长度单位</span>。
+    </p>
+    <div class="demo">
+        <span style="width:60px;"></span>60px<br/>
+        <span style="width:40em;"></span>40em<br/>
+        <span style="width:40vw;"></span>40vw<br/>
+        <span style="width:40vh;"></span>40vh<br/>
+        <span style="width:40ex;"></span>40ex<br/>
+        <span style="width:60pt;"></span>60pt<br/>
+        <span style="width:6pc;"></span>6pc<br/>
+        <span style="width:3in;"></span>3in<br/>
+        <span style="width:60mm;"></span>60mm<br/>
+        <span style="width:6cm;"></span>6cm<br/>
+    </div>
+</div>
+</body>
+</html>

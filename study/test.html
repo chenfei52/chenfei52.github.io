@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <style>
+        ul > li:not(:last-child)::after {
+            content: ",";
+        }
+
+        video::-webkit-media-controls-enclosure {
+            overflow:hidden;
+        }
+        video::-webkit-media-controls-panel {
+            width: calc(100% + 30px);
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <video id="video" src="http://172.16.133.211:86/bucket-p/streamings/biz_sobey_video/2017/06/19/videogroup_f581c721c66c432da6859a8d0f14443a_0.mp4" controls></video>
+</div>
+<button id="pause">暂停</button>
+<button id="play">播放</button>
+<button id="remove">移除video标签</button>
+
+<button id="event">Event对象</button>
+
+<a href="https://www.baidu.com/" target="_blank">新开页面</a>
+<a href="https://www.baidu.com/" target="_self">当前页面</a>
+
+<script>
+    var event = document.getElementById('event');
+    event.addEventListener('mousedown',function(e){
+        console.log(e.button);
+    });
+
+    window.onpageshow = (e)=>{
+        if(e.persisted){  //event属性为true时表示是从缓存中读取的
+            console.log('Page from cache');
+        }
+    }
+
+    document.onreadystatechange = function(){
+        console.log(document.readyState);
+    };
+    document.addEventListener('DOMContentLoaded',function(){
+        console.log('事件触发1');
+    });
+    document.DOMContentLoaded = function(){
+        console.log('事件触发2');
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var container = document.getElementById('container'),
+        remove = document.getElementById('remove');
+    function initVideo(video){
+        var pause = document.getElementById('pause'),
+            play = document.getElementById('play'),
+            playS = true;
+        function pauseVideo(){
+            video.pause();
+        }
+        function playVideo(){
+            playS = true;
+            video.play();
+        }
+        pause.onclick = function(){
+            pauseVideo();
+        };
+        play.onclick = function(){
+            playVideo();
+        };
+        container.addEventListener('keydown',function(){
+            debugger;
+            console.log(video);
+            if(playS){
+                video.pause();
+            }else{
+                video.play();
+            }
+        });
+    }
+    initVideo(document.getElementById('video'));
+    remove.onclick = function(){
+        video.parentNode.removeChild(video);
+        container.innerHTML='<video id="video" src="http://172.16.133.211:86/bucket-k/streamings/biz_sobey_video/2017/06/08/videogroup_caa0a933cf5d411a991b2080a0ac1d84_0.mp4" controls></video>';
+        initVideo(document.getElementById('video'));
+    };
+
+</script>
+</body>
+</html>

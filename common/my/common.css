@@ -1,0 +1,142 @@
+/*created by cf on 2017/1/6*/
+
+/*字体*/
+@font-face{
+    font-family:myFont0;
+    src:url('fontfamily/1/AlexBrush-Regular.ttf');
+}
+
+@font-face{
+    font-family:myFont1;
+    src:url('fontfamily/2/Apples Script Demo.ttf');
+}
+
+@font-face{
+    font-family:myFont2;
+    src:url('fontfamily/3/Dali.ttf');
+}
+
+@font-face{
+    font-family:myFont3;
+    src:url('fontfamily/4/Respective.ttf');
+}
+
+@font-face{
+    font-family:myFont4;
+    src:url('fontfamily/5/Zephan.ttf'),
+        url('fontfamily/5/Zephan.otf');
+}
+
+@font-face{
+    font-family:Proxima;
+    src:url('fontfamily/Proxima/ProximaSansMedium.ttf');
+}
+
+html,body{
+    margin:0;
+    padding:0;
+    background-color:#F1F6F7;
+}
+
+/*阅读进度*/
+#pageProgress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:3px;
+}
+#pageProgress span.slider{
+    position:absolute;
+    display:block;
+    width:0;
+    height:100%;
+    transition:0.3s;
+    -webkit-transition:0.3s;
+    -moz-transition:0.3s;
+    background-color:#c2baba;
+}
+
+/*头部样式start*/
+.header,header{
+    height:44px;
+    line-height:44px;
+    padding:20px 35px;
+    background:linear-gradient(top,#FFF,#d7ecf2);
+    background:-webkit-linear-gradient(top,#FFF,#d7ecf2);
+    background:-moz-linear-gradient(top,#FFF,#d7ecf2);
+    background:-o-linear-gradient(top,#FFF,#d7ecf2);
+}
+.header h1,header h1{
+    display: inline-block;
+    margin:0;
+    color:#1b4c5c;
+    cursor:default;
+    font-family:myFont1;
+}
+/*头部样式end*/
+
+/*页面样式 start*/
+div.studyContent{
+    /*width:65%;*/
+    line-height: 1.5;
+    margin:0 auto;
+    padding:30px;
+}
+div.studyContent p{
+    text-indent:2em;
+    word-wrap:break-word;
+}
+div.studyContent p.title{
+    font-weight: 600;
+    text-indent: 0;
+}
+div.studyContent p a{
+    text-decoration:none;
+    cursor:pointer;
+}
+div.studyContent p a:hover{
+    text-decoration:underline;
+}
+/*代码格式*/
+div.studyContent pre{
+    margin: 0 2em;
+    line-height: 1.5;
+    border: 1px dashed#bfbfbf;
+    color: #4a4a4a;
+    background: #efefef;
+    white-space: pre-wrap;
+}
+div.studyContent pre span.note{
+    color:#9e9e9e;
+}
+div.studyContent pre span.blue{
+    color:#0000FF;
+}
+/*缩进*/
+div.studyContent .textIndent{
+    display: inline-block;
+    width: 2em;
+}
+div.studyContent .textIndents{
+    display: inline-block;
+    width: 4em;
+}
+/*字体加粗*/
+div.studyContent .blabel{
+    font-weight:600;
+}
+/*字体加色*/
+div.studyContent .note{
+    color:green;
+}
+div.studyContent span.red{
+    color:#FF4904;
+}
+.red{
+    color:#FFFFFF;
+}
+div.studyContent span.gray{
+    color:gray;
+}
+/*页面样式 end*/

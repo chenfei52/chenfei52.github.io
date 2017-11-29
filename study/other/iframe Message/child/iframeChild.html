@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>iframe间通信</title>
+    <style>
+        body{
+            background:antiquewhite;
+        }
+        h1{
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="child">
+    <h1>收到父页面消息：</h1><h1 class="show"></h1><br/>
+    <!--<video style="width:500px;height:280px;margin: 0 675px;" controls src="a.mp4"></video>-->
+    <input type="text" id="message" placeholder="向嵌套本页面的父页面发送" /><button class="sendParent">发送</button>
+
+    <br/><br/><br/>
+    <input type="text" id="message2" placeholder="向打开本页面的父页面发送" /><button class="sendParent2">发送</button>
+</div>
+
+<script src="../../../../common/jquery/dist/jquery.js"></script>
+<script>
+    //判断当前页是否为顶层页面 即是否有父页面
+    if(self.location == top.location){
+        $('.sendParent').attr('disabled','true')
+    }else{
+        $('.sendParent2').attr('disabled','true')
+    }
+    //向父页面发送消息
+    $('button').click(function(){
+        window.parent.postMessage($('#message').val(),'/');
+    });
+    //接收父页面消息
+    window.addEventListener('message',function(event){
+        $('.show').html(event.data);
+    })
+
+    //向新窗口打开本页面的父窗口发送信息
+     $('.sendParent2').click(function(){
+         window.opener.postMessage($('#message2').val(),'/')
+     })
+</script>
+</body>
+</html>

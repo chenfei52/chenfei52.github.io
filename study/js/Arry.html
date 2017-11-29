@@ -1,0 +1,307 @@
+<!--Created by feichen on 2017/3/5-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>arry</title>
+    <link rel="stylesheet" href="./../../common/my/common.css">
+</head>
+<body>
+    <header>
+        <h1>Arry</h1>
+    </header>
+    <div class="studyContent">
+        <section>
+            <p>数组方法:</p>
+            <p>
+                <span class="note">sort()</span>：sort方法将数组中的元素排序并返回排序后的数组，当不带参数调用sort()时，
+                则数组元素按字母表排序（有必要时转化为字符串进行比较，注意数组会按照首位数字来排序而不是整个数字的大小）。<br/>
+                <span class="textIndent"></span>为了使数组按照其他方式排序，需要给sort方法传入一个比较函数，当第一个参数
+                应该排在前面时，比较函数应该返回一个小于0的数，反之则返回一个大于0的数(思考逻辑:只有大于0时才交换位置)。<br>
+                <span class="textIndent"></span>sort方法不是JS标准中的，依靠每个浏览器自己对sort实现。sort在给数字排序时
+                并不是默认按数值大小来的，而是按照unicode码值来的，因此导致了[8,4,27,16,9].sort()会得到[16,27,4,8,9]的
+                结果，因此需要传入排序规则a-b或者b-a;
+                <pre><code>
+            var arry = [56,87,2,678,90];
+            console.log(arry.sort());//[2, 56, 678, 87, 90]
+            console.log(arry.sort(function(a,b){
+                return a-b;
+            }))// [2, 56, 87, 90, 678]
+            console.log(arry.sort(function(a,b){
+                return a-b;
+            }))// [678, 90, 87, 56, 2]
+            </code></pre>
+            </p>
+
+            <p>
+                <span class="note">join()</span>：该方法可以将所有元素转化为字符串排序，可传入指定参数作为元素间分割符，默认为逗号。
+            </p>
+
+            <p><span class="note">reverse()</span>：将数组中的元素顺序颠倒。</p>
+
+            <p>
+                <span class="note">concat()</span>：该方法可合并传入参数与原始数组一起并返回新数组，注意该方法不会修改数组本身。该方法也可用来连接两个数组。
+                <pre><code>
+            var arry = [1,2,3,4];
+            arry.concat(5,6);// [1,2,3,4,5,6]
+            arry.concat(6,7);// [1,2,3,4,6,7]
+            arry.concat(7,[8,9]);// [1,2,3,4,7,8,9]
+            arry.concat(5,[6,[7,8]]);// [1,2,3,4,5,6,[7,8]]
+            var arry2 = ['a','b'];
+            var arry3 = [].concat(arry,arry2);// [1,2,3,4,'a','b']
+
+            // 深拷贝
+            var arry4 = arry.concat();
+            arry4[0] = 100;
+            console.log(arry);// [1, 2, 3, 4]
+            console.log(arry4);// [100,2,3,4]
+                </code></pre>
+                可以用该方法来完成对数组的深拷贝,见上例。
+            </p>
+
+            <p>
+                <span class="note">slice()</span>：该方法返回指定函数的片段或子数组，接受两个参数，截取开始与结束索引可接受负值，即从尾开始数。指定一个参数时
+                即结束位置默认为到数组最后。该方法也不会修改原数组，也可用该方法完成对数组的深拷贝。即var arr = arry.slice(0)；（arry为要克隆数组）
+            </p>
+
+            <p>
+                <span class="note">splice()</span>：该方法用来添加或者删除数组指定位置的元素（注意该方法会修改元素本身）。可接受无数个参数，第一个参数为从第几个开始删
+                (包括其本身，只穿该参数时表示删到最后)。第二个参数指定其要删除的个数（只有两个时表示不添加元素），第三个参数以后的参数指定要向其中添加的元素；与concat不同三
+                个及以后的参数若为数组则会将整个数组当作一个元素添加进去。
+            </p>
+
+            <p>
+                <span class="note">push()和pop()</span>：push方法用于向数组尾部添加元素，可同时传递多个值。而pop方法则删除数组最后一个元素并返回其删除的值。两个方法都会修改原数组。<br/>
+                <span class="textIndent"></span><span class="note">unshift()和shift()</span>：unshift()用于向数组的头部添加元素（与push一样可接受多个元素），shift方法删除数组的第一个元素并返回其删除的值。
+            </p>
+
+            <p>
+                以下为<span class="red">ES5新增</span>的数组方法,浏览器兼容情况:<br/>
+                <span class="textIndent"></span>Opera 11+<br/>
+                <span class="textIndent"></span>Firefox 3.6+<br/>
+                <span class="textIndent"></span>Safari 5+<br/>
+                <span class="textIndent"></span>Chrome 8+<br/>
+                <span class="textIndent"></span>Internet Explorer 9+<br>
+                <span class="textIndent"></span>查看兼容写法请<a href="#arryCompatible">点击</a>
+            </p>
+            <p>
+                <span class="note">indexOf()和lastIndexOf()</span>：两个方法均用来查找某项在数组中是否存在，接受两个参数要查找的项与索引的起始位置（可选，接受负值）。查找相同项时返回值一样不过后者
+                从后开始查找，不存在时返回-1，比较时使用全等符判断。
+            </p>
+
+            <p>
+                <span class="note">forEach()和map()</span>：forEach方法为遍历循环，而map则意为映射会返回一个新数组。两者接受参数相同,最多接受两个参数（callback,thisArg），
+                其中callback为匿名回调函数，可接受参数为三个(value,index,arry)，val表示当前循环的值，index为当前循环索引，arry为数组本身，根据需要传入。而方法的第二个参数thisArg
+                为可选参数，为前者回调指定this对象，不指定时回调中的this默认指向window;
+                <pre><code>
+            var arr = [5,9,1,4],
+                obj = {a:56};
+            arr.forEach(function(val){
+                console.log(this.a);// 56 56 56 56
+            },obj)
+            var newArry = arr.map(function(val){
+                if(val==4){
+                    console.log(this);// Window
+                    return true;
+                }
+                if(val>4){
+                    return val;
+                }
+            });
+            console.log(newArry);// [5, 9, undefined, true]
+
+            arr.filter(function(val){
+	            if(val>5)return true;
+            })// [9]
+
+            console.log(arr);// [5, 9, 1, 4]
+                </code></pre>
+            </p>
+
+            <p>
+                <span class="note">filter()</span>：该方法测试所有元素是否符合指定条件，并返回一个新数组。接收两个参数(callback,thisArg);参数同上。其中callback需要返回true或者false，
+                或者可转化为true或者false的值，否则删除该元素。示例见上。
+            </p>
+
+            <p>
+                <span class="note">every()和some()</span>两者都返回Boolean值，every用来判断每一项是否符合标准，而some判断是否存在项符合标准。接收两个参数(callback,thisArg);参数同上。
+                其中some在得到一个true后即不再执行；
+                <pre><code>
+            var arr = [1,2,3,4,5,6,7,8,9];
+            arr.some(function(val,index,arr){
+                if(val>8)
+                    return true;
+            });// true
+            arr.some(function(val,index,arr){});// false
+            arr.every(function(val,index,arr){
+                if(val>this.a)
+                    return true;
+            },{a:0});// true
+                </code></pre>
+            </p>
+
+            <p>
+                <span class="note">reduce()和reduceRight()</span>：reduce必须接受两个参数，(callback[, initialValue])前者接受四个参数：之前值、当前值、索引值、
+                以及数组本身，相对于之前的多了一个之前值，这里的之前值值得是上次循环的返回值，最终返回最后一次的返回值。在第一次循环时如果未指定第二个方法参数，
+                那么之前值为数组第一个元素而current为第二个元素，若指定了则之前值的初始值为方法的第二个参数，即指定了方法第二个参数循环比未指定多一次。<br>
+                <span class="textIndent"></span>reduceRight和reduce用法相似不过是从数组结尾开始。
+                <pre><code>
+            var arr = [1,2,3,4];
+            arr.reduce(function(last,now,index,arr){
+                if(index == 1){
+                    console.log(last);// 1
+                    console.log(now);// 2
+                }
+            });
+            arr.reduce(function(last,now,index,arr){
+                if(index == 0){
+                    console.log(last);// 200
+                    console.log(now);// 1
+                }
+            },200)
+            var a = arr.reduce(function(last,now,index,arr){
+                return last+now;
+            });// a = 10
+            var b = arr.reduce(function(last,now,index,arr){
+                if(index-2>0){
+                    return last+now;
+                }
+                else{
+                    return 0;
+                }// b = 4;若无此else则返回NAN,因为last未定义
+            });
+                </code></pre>
+            </p>
+            <p id="arryCompatible">
+                <span class="red">以上ES5方法在不支持的浏览器上的兼容写法如下：</span><br>
+                <pre><code>
+            此js来自:[http://www.zhangxinxu.com]
+            
+            if (typeof Array.prototype.forEach != "function") {
+              Array.prototype.forEach = function (fn, context) {
+                for (var k = 0, length = this.length; k < length; k++) {
+                  if (typeof fn === "function" && Object.prototype.hasOwnProperty.call(this, k)) fn.call(context, this[k], k, this);
+                }
+              };
+            }
+
+            if (typeof Array.prototype.map != "function") {
+              Array.prototype.map = function (fn, context) {
+                var arr = [];
+                if (typeof fn === "function") {
+                  for (var k = 0, length = this.length; k < length; k++) {
+                      arr.push(fn.call(context, this[k], k, this));
+                  }
+                }
+                return arr;
+              };
+            }
+
+            if (typeof Array.prototype.filter != "function") {
+              Array.prototype.filter = function (fn, context) {
+                var arr = [];
+                if (typeof fn === "function") {
+                  for (var k = 0, length = this.length; k < length; k++) {
+                      fn.call(context, this[k], k, this) && arr.push(this[k]);
+                  }
+                }
+                return arr;
+              };
+            }
+
+            if (typeof Array.prototype.some != "function") {
+              Array.prototype.some = function (fn, context) {
+                var passed = false;
+                if (typeof fn === "function") {
+                  for (var k = 0, length = this.length; k < length; k++) {
+                      if (passed === true) break;
+                      passed = !!fn.call(context, this[k], k, this);
+                  }
+                }
+                return passed;
+              };
+            }
+
+            if (typeof Array.prototype.every != "function") {
+              Array.prototype.every = function (fn, context) {
+                var passed = true;
+                if (typeof fn === "function") {
+                  for (var k = 0, length = this.length; k < length; k++) {
+                      if (passed === false) break;
+                      passed = !!fn.call(context, this[k], k, this);
+                  }
+                }
+                return passed;
+              };
+            }
+
+            if (typeof Array.prototype.indexOf != "function") {
+              Array.prototype.indexOf = function (searchElement, fromIndex) {
+                var index = -1;
+                fromIndex = fromIndex * 1 || 0;
+
+                for (var k = 0, length = this.length; k < length; k++) {
+                  if (k >= fromIndex && this[k] === searchElement) {
+                      index = k;
+                      break;
+                  }
+                }
+                return index;
+              };
+            }
+
+            if (typeof Array.prototype.lastIndexOf != "function") {
+              Array.prototype.lastIndexOf = function (searchElement, fromIndex) {
+                var index = -1, length = this.length;
+                fromIndex = fromIndex * 1 || length - 1;
+
+                for (var k = length - 1; k > -1; k-=1) {
+                    if (k <= fromIndex && this[k] === searchElement) {
+                        index = k;
+                        break;
+                    }
+                }
+                return index;
+              };
+            }
+
+            if (typeof Array.prototype.reduce != "function") {
+              Array.prototype.reduce = function (callback, initialValue ) {
+                 var previous = initialValue, k = 0, length = this.length;
+                 if (typeof initialValue === "undefined") {
+                    previous = this[0];
+                    k = 1;
+                 }
+
+                if (typeof callback === "function") {
+                  for (k; k < length; k++) {
+                     this.hasOwnProperty(k) && (previous = callback(previous, this[k], k, this));
+                  }
+                }
+                return previous;
+              };
+            }
+
+            if (typeof Array.prototype.reduceRight != "function") {
+              Array.prototype.reduceRight = function (callback, initialValue ) {
+                var length = this.length, k = length - 1, previous = initialValue;
+                if (typeof initialValue === "undefined") {
+                    previous = this[length - 1];
+                    k--;
+                }
+                if (typeof callback === "function") {
+                   for (k; k > -1; k-=1) {
+                      this.hasOwnProperty(k) && (previous = callback(previous, this[k], k, this));
+                   }
+                }
+                return previous;
+              };
+            }
+                </code></pre>
+            </p>
+        </section>
+    </div>
+
+<script src="./../../common/my/pageFormat.js"></script>
+</body>
+</html>
