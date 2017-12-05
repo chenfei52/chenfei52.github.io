@@ -1,0 +1,211 @@
+/**
+*本文件包含了主页面的主要内容区的样式
+**/
+
+/* 右侧内容区域 */
+#rightContent,
+#rightContent_next{
+    position: relative;
+    min-height:100%;
+    background: #fff;
+    padding: 15px 10px 0px 10px;
+    text-align:center;
+}
+#rightContent_next{
+    display:none;
+}
+
+/* 标签页样式 */
+#rightContent .nav-tabs{
+    padding-left:5px;
+    margin-bottom:15px;
+}
+#rightContent .nav-tabs li.active{
+    background-color:#FFF;
+}
+#rightContent .nav-tabs li.active a{
+    margin-right:0;
+    border-bottom-color: #FFF;
+}
+#rightContent .nav-tabs li.active a:hover{
+    background-color: inherit;
+    border-bottom:1px solid #FFF;
+}
+#rightContent .nav-tabs li a:hover{
+    background-color: #f9f9f9;
+}
+
+
+/* 表格样式 */
+#rightContent .contentTable{
+}
+#rightContent .finishedTable .cartTitle_c:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+#rightContent .contentTable tr:nth-child(1),
+#rightContent_next .contentTable tr:nth-child(1){
+    background-color: #6e7fa0;
+    color: #FFF;
+    font-weight: 600;
+}
+
+
+#rightContent .finishedTable td .delete,
+#rightContent .finishedTable td .copy,
+#rightContent .goodsTable td .addCart{
+    vertical-align: middle;
+    margin:0 5px;
+    cursor:pointer;
+}
+#rightContent .finishedTable td .delete:hover{
+    color:#ff2f2f;
+}
+#rightContent .finishedTable td .copy:hover,
+#rightContent .goodsTable td .addCart:hover{
+    color:#5bc0de;
+}
+
+/* 标签页下的筛选条件 */
+#rightContent .conditions p,
+#goossDetail .conditions p{
+    text-align: left;
+    margin: 15px 0;
+}
+/* 标签页下的筛选条件 */
+#rightContent .conditions .title,
+#goossDetail .conditions .title{
+    display: inline-block;
+    min-width: 100px;
+    text-align:center;
+    font-weight: 600;
+}
+#rightContent .conditions .con,
+#goossDetail .conditions .con{
+    display:inline-block;
+    padding:5px 15px;
+    border:1px solid #6c7e9f;
+    border-radius:5px;
+    cursor:pointer;
+    margin:3px 5px;
+}
+#rightContent .conditions .con:hover,
+#goossDetail .conditions .con:hover{
+    background-color:#f9f9f9;
+}
+#goossDetail .conditions p>.active,
+#rightContent .conditions p>.active{
+    color:#FFF;
+    background-color:#6c7e9f;
+}
+#rightContent .conditions p>.active:hover,
+#goossDetail .conditions p>.active:hover{
+    color:#FFF;
+    background-color:#6c7e9f;
+}
+
+/* 购物车样式 */
+.cartTitle{
+    text-align:left;
+    margin-bottom:15px;
+    line-height:1.5rem;
+    font-size: 1rem;
+}
+.cartTitle .labels{
+    font-weight:600;
+    margin-right:5px;
+}
+.cartTitle .form-control {
+    display: inline-block;
+    width: 150px;
+    margin-left: 15px;
+}
+.cartTitle .glyphicon{
+    margin-left:15px;
+    cursor:pointer;
+}
+.cartTitle .glyphicon:hover{
+    color:#5bc0de;
+}
+
+/* 表格操作 */
+#rightContent .tableOperate{
+    text-align:right;
+    margin-bottom: 5px;
+}
+#rightContent .tableOperate .glyphicon{
+    margin:0 10px;
+    font-size: 16px;
+    cursor:pointer;
+}
+#rightContent .tableOperate .glyphicon:hover{
+    color:#5bc0de;
+}
+
+/*分页*/
+#pageLimit li>a{
+    cursor:pointer;
+}
+
+/* 商品详情框样式 */
+#goossDetail{
+    display:none;
+    position:relative;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+.layui-layer-page{
+    border-radius:5px!important;
+}
+#goossDetail .addToCartCon{
+    position: absolute;
+    right:15px;
+    bottom:20px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#goossDetail .addToCartCon>div{
+    display:inline-block;
+    margin-right: 25px;
+}
+#goossDetail .addToCartCon input{
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+}
+#goossDetail .addToCartCon .glyphicon{
+    cursor:pointer;
+}
+
+/*自定义弹出框样式*/
+#customModal{
+    display:none;
+    position:relative;
+    width: 100%;
+    height: 100%;
+    padding: 15px
+}
+#customModal .confirmCartTitle input{
+    margin-bottom: 15px;
+}
+#customModal .confirmCartTitle button{
+    float: right;
+}
+
+/*返回按钮样式*/
+#toogleRightContent{
+    text-align:left;
+    margin-bottom: 15px;
+}
+#toogleRightContent span{
+    cursor:pointer;
+    font-weight:600;
+    color:#337ab7;
+}
+#toogleRightContent span:hover{
+    color:#1E9FFF;
+}
+/* 右侧内容区域 end*/

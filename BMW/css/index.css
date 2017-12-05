@@ -1,0 +1,182 @@
+/**
+*本文件包含了主页面的所有公共样式 以及头部左侧菜单样式
+**/
+* {
+    margin:0;
+    box-sizing: border-box;
+}
+* li{
+    list-style: none;
+}
+* a{
+    text-decoration:none!important;
+    color:inherit;
+}
+* a:hover{
+    text-decoration:none!important;
+}
+html{
+    width:100%;
+    height:100%;
+    font-size: 16px;    
+    font-family: 'Open Sans', helvetica, arial, sans-serif
+}
+body{
+    width:100%;
+    height:100%;
+    font-size: 16px!important;
+    background: #fafafa;
+}
+
+/*文字超出省略号*/
+.ellipsis{
+    display: inline-block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.topNavbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:50px;
+    line-height:50px;
+    padding:0 30px;
+    color:#FFF;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 3px #cccccc;
+    background: #4d5b76;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #4d5b76), color-stop(1, #6f80a1));
+    background: -ms-linear-gradient(bottom, #4d5b76, #6f80a1);
+    background: -moz-linear-gradient(center bottom, #4d5b76 0%, #6f80a1 100%);
+    background: -o-linear-gradient(bottom, #4d5b76, #6f80a1);
+    z-index: 100;
+}
+.topNavbar h3{
+    display: inline-block;
+    margin: 0;
+    font-weight: 400;
+    line-height: 50px;
+}
+#main-menu .dropdown-toggle{
+    background-color:inherit;
+}
+#main-menu .open>a{
+    background-color:#444;
+}
+#main-menu .dropdown-toggle:hover,
+#main-menu .open>a:focus,
+#main-menu .open>a:active{
+    background-color:#444;
+}
+#main-menu .dropdown-toggle{
+    color:#FFF;
+}
+
+
+
+/* 左侧菜单 */
+.bodyContent{
+    height: 100%;
+    padding-left: 240px;
+    padding-top: 50px;
+}
+#leftMenu{
+    width:240px;
+    position:fixed;
+    height: 100%;
+    top:50px;
+    left:0;
+    border-right: 1px solid #cccccc;
+    background: #fafafa;
+    z-index: 100;
+}
+#leftMenu ul{
+    padding:0;
+}
+#leftMenu>ul ul{
+    border-bottom: 1px solid #c8c8cb;
+}
+#leftMenu>ul>li li{
+    border-left: 4px solid transparent;
+    line-height: 2.5rem;
+    -webkit-transition: 200ms ease-in;
+    -moz-transition: 200ms ease-in;
+    -ms-transition: 200ms ease-in;
+    -o-transition: 200ms ease-in;
+    transition: 200ms ease-in;
+    background-color: #FFF;
+}
+#leftMenu>ul>li li:hover{
+    border-left: 4px solid #8989a6;
+    background-color:#f5f8ff;
+}
+#leftMenu>ul>li .leftMenuActive{
+    border-left: 4px solid #8989a6;
+    background-color:#e6e6f1;
+    padding-left:10px;
+}
+#leftMenu>ul>li .leftMenuActive:hover{
+    border-left: 4px solid #8989a6;
+    background-color:#e6e6f1;
+    padding-left:10px;
+}
+#leftMenu>ul>li>a{
+    display: inline-block;
+    width:100%;
+    padding: 5px 5px 5px 15px;
+    line-height: 3rem;
+}
+#leftMenu>ul>li a{
+    display:block;
+    height:100%;
+    padding: 5px 5px 5px 11px;
+    color: #333;
+}
+#leftMenu>ul .menu_par{
+    background: #efeff0;
+    border-top: 1px solid #fcfcfc;
+    border-bottom: 1px solid #c8c8cb;
+    background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #efeff0), color-stop(1, #fafafa));
+    background: -ms-linear-gradient(bottom, #efeff0, #fafafa);
+    background: -moz-linear-gradient(center bottom, #efeff0 0%, #fafafa 100%);
+    background: -o-linear-gradient(bottom, #efeff0, #fafafa);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#efeff0', EndColorStr='#fafafa');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa',EndColorStr='#efeff0')";
+    border-left: none;
+    color: #444;
+    display: block;
+    font-weight: normal;
+    margin-bottom: 0px;
+    text-shadow: none;
+    text-transform: none;
+}
+#leftMenu>ul .menu_par i{
+    float: right;
+    margin-right: 15px;
+    line-height: 3rem;
+}
+#leftMenu .collapsed .glyphicon-triangle-right{
+    font-size:12px;
+}
+#leftMenu .collapsed .glyphicon-chevron-up{
+    display:none;
+}
+#leftMenu .glyphicon-chevron-down{
+    display:none;
+}
+#leftMenu .collapsed .glyphicon-chevron-down{
+    display:block;
+}
+#leftMenu>ul li{
+    cursor:pointer;
+}
+#cartNumber{
+    float: right;
+    margin: 0.75rem 8px 0.75rem 0;
+    line-height:1rem;
+}
+/* 左侧菜单 end*/

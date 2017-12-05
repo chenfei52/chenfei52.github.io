@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>newProject</title>
+    <link rel="stylesheet" href="./common/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/index_content.css">
+</head>
+<body>
+    <div class="topNavbar">
+            <h3>BMW</h3>
+            
+            <ul id="main-menu" class="nav navbar-nav navbar-right">
+                <li class="dropdown hidden-xs">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-user padding-right-small" style="position:relative;top: 3px;"></span>
+                        <span id="loginUserName"></span>
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+    
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1" href="./login.html">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+    </div>
+    
+    <div class="bodyContent">
+        <div id="leftMenu">
+            <ul>
+                <li class="menu_par">
+                    <a href="#evaluation_menu" data-toggle="collapse" data-parent="#leftMenu">
+                        Evaluation
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                    </a>
+                </li>
+                <li id="evaluation_menu" class="collapse in">
+                    <ul>
+                        <li class="finish_eva">
+                            <a href="#/finish_eva">
+                                <span class="glyphicon glyphicon-triangle-right"></span> 
+                                My Finished Evaluation 
+                            </a>
+                        </li>
+                        <li class="new_eva">
+                            <a href="#/new_eva"> 
+                                <span class="glyphicon glyphicon-triangle-right"></span>
+                                New Evaluation 
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="menu_par">
+                    <a href="#cart_menu" data-toggle="collapse" data-parent="#leftMenu" >
+                        ShoppingCart
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                    </a>
+                </li>
+                <li id="cart_menu" class="collapse in">
+                    <ul>
+                        <li class="my_cart">
+                            <a href="#/my_cart"> 
+                                <span class="glyphicon glyphicon-triangle-right"></span> 
+                                My Cart 
+                                <span id="cartNumber" class="label label-info"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="menu_par">
+                    <a href="#product_menu" data-toggle="collapse" data-parent="#leftMenu" >
+                        Product
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                        <i class="glyphicon glyphicon-chevron-down"></i>
+                    </a>
+                </li>
+                <li id="product_menu" class="collapse in">
+                    <ul>
+                        <li class="product">
+                            <a href="#/product">
+                                <span class="glyphicon glyphicon-triangle-right"></span>
+                                My owned product
+                            </a>  
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="rightContent">
+        </div>
+        <div id="rightContent_next">
+        </div>
+
+    </div>
+
+
+    <!--商品详情弹出框所需要dom-->
+    <div id="goossDetail">
+    </div>
+    <!--自定义弹出框所需要dom-->
+    <div id="customModal">
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./common/bootstrap/js/bootstrap.min.js"></script>
+    <script src="./common/layer/layer.js"></script>
+    <script src="./common/bootstrap/js/bootstrap-paginator.js"></script>
+
+    <script src="./js/common.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/index_cart.js"></script>
+    <script src="./js/index_goods.js"></script>
+    <script src="./js/index_finishCart.js"></script>
+    <script src="./js/index_owner.js"></script>
+</body>
+</html>
