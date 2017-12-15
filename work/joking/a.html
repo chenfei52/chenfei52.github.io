@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>IQ Test</title>
+        <style>
+            *{
+                margin:0;
+            }
+            .animate{
+                opacity:0;
+                width:400px;
+                height:290px;
+                margin:35px auto;
+                background:black;
+                padding:20px;
+            }
+            .small{
+                width:10px;
+                height:10px;
+                background:#FFF;
+            }
+            .allShadow{
+                display:none;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #1a1919;
+                opacity: 0.65;
+                z-index: 50;
+            }
+            .question{
+                display:none;
+                position: absolute;
+                width: 200px;
+                height: 100px;
+                border: 1px solid #4f4f4f;
+                left: 50%;
+                margin-left: -125px;
+                padding: 10px 30px;
+                top: 250px;
+                background: #FFF;
+                z-index: 100;
+            }
+            a{
+                position: absolute;
+                display: inline-block;
+                background: #FFF;
+                border: 1px solid #cdcdcd;
+                width: 45px;
+                height: 20px;
+                line-height: 20px;
+                border-radius: 3px;
+                text-align: center;
+                cursor: pointer;
+            }
+            a:hover{
+                color:#FFF;
+                background:#D1351F;
+            }
+            .yes{
+                transition:0.1s;
+            }
+            .no{
+                transition:0.1s;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div class="allShadow"></div>
+
+        <div class="question">
+            <p style="margin-top:10px;">1、Are you sb?</p>
+            <a class="yes" style="bottom: 30px;left:30px;">yes</a>
+            <a class="no" style="bottom:30px;left:185px;">no</a>
+            <span class="tips" style="position:absolute;bottom:0;color:red;"></span>
+        </div>
+
+        <div id="test" style="width:500px;height:500px;margin:200px auto;border:1px solid lightblue;">
+            <div style="width:440px;height:400px;margin:50px 30px;text-align:center;">
+                <span class="saying" style="display:inline-block;width:100%;">Do you want test you IQ?<br/> Just click there...</span><br/>
+                <button style="margin-top:60px;">Start Test</button>
+
+                <div class="animate">
+                    <div style="position:relative;width:50%;float:left;height:100%;">
+                        <div style="position:absolute;top:10px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:40px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:50px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:60px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:70px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:80px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:90px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:100px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:110px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:120px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:130px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:140px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:150px;" class="small"></div>
+                        <div style="position:absolute;top:10px;right:160px;" class="small"></div>
+
+                        <div style="position:absolute;top:20px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:30px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:40px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:50px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:60px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:70px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:80px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:90px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:100px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:110px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:120px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:130px;right:160px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:160px;" class="small"></div>
+
+                        <div style="position:absolute;top:140px;right:150px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:140px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:130px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:120px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:110px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:100px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:90px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:80px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:70px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:60px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:50px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:40px;" class="small"></div>
+                        <div style="position:absolute;top:140px;right:30px;" class="small"></div>
+
+                        <div style="position:absolute;top:140px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:150px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:160px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:170px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:180px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:190px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:200px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:210px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:220px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:230px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:240px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:250px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:30px;" class="small"></div>
+
+                        <div style="position:absolute;top:260px;right:30px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:40px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:50px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:60px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:70px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:80px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:90px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:100px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:110px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:120px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:130px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:140px;" class="small"></div>
+                        <div style="position:absolute;top:260px;right:150px;" class="small"></div>
+                    </div>
+
+                    <div style="position:relative;width:50%;float:left;height:100%;">
+                        <div class="small" style="position:absolute;left:30px;top:10px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:20px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:30px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:40px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:50px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:60px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:70px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:80px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:90px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:100px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:110px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:120px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:130px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:150px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:160px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:170px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:180px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:190px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:200px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:210px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:220px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:230px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:240px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:250px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:260px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:270px;"></div>
+
+                        <div class="small" style="position:absolute;left:40px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:50px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:60px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:70px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:80px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:90px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:100px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:110px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:120px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:130px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:140px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:150px;top:140px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:140px;"></div>
+
+                        <div class="small" style="position:absolute;left:160px;top:150px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:160px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:170px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:180px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:190px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:200px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:210px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:220px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:230px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:240px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:250px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:260px;"></div>
+                        <div class="small" style="position:absolute;left:160px;top:270px;"></div>
+
+                        <div class="small" style="position:absolute;left:150px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:140px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:130px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:120px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:110px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:100px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:90px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:80px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:70px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:60px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:50px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:40px;top:270px;"></div>
+                        <div class="small" style="position:absolute;left:30px;top:270px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script src="../../common/jquery/dist/jquery.js"></script>
+    <script>
+        var times1 = 0;
+        var times2 = 0;
+        $('.yes').hover(function(){
+            times1++;
+        })
+        .click(function(){
+            alert('Test finished!');
+            $('.allShadow').css('display','none');
+            $('.question').css('display','none');
+            answer();
+        });
+        $('.no').hover(function(){
+            times2++;
+            console.log(times2);
+            switch(times2){
+                case 1:
+                    $('.yes').css({
+                        left:'185px'
+                    });
+                    $('.no').css({
+                        left:'30px'
+                    });
+                    break;
+                case 3:
+                    $('.no').css({
+                        bottom:'55px'
+                    });
+                    break;
+                case 5:
+                    $('.no').css({
+                        bottom:'30px'
+                    });
+                    break;
+                case 7:
+                    $('.yes').css({
+                        left:'30px'
+                    });
+                    $('.no').css({
+                        left:'185px'
+                    });
+            }
+        });
+        $('.question').on('mousedown','.no',function(){
+            $('.yes').css({
+                left:'185px'
+            });
+            $('.no').css({
+                left:'30px'
+            });
+        });
+
+
+        function answer(){
+            $('.saying').html('<span style="display:inline-block;width:100%;text-align:left;font-weight:800;font-size:25px;;color: #5d5dff;">The result is you are:</span>');
+
+            $('.animate .small').css({
+                opacity:'0',
+                'margin-top':'-440px'
+            });
+            function showResult(){
+                $('.animate .small').each(function(){
+                    var num = Math.random(0,1);
+                    $(this).animate({
+                        opacity:'1',
+                        'margin-top':'0'
+                    },num*1000,'swing')
+                });
+            }
+            $('.animate').animate({
+                opacity:'1'
+            },1000,showResult);
+        }
+        $('#test').on('click','button',function(){
+            $('.saying').html('<img style="width:60px;height:60px;" src="test/wait.gif"/><br/>Waiting...');
+            $('.result').css('display','block');
+            $('button').css({
+                display:'none'
+            });
+            setTimeout(function(){
+                $('.allShadow').css('display','block');
+                $('.question').css('display','block');
+            },1000);
+        })
+    </script>
+    </body>
+</html>

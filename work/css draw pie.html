@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>css绘制二元饼图</title>
+    <style>
+        .pieChart{
+            position:relative;
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            background:lightblue;
+        }
+        .arcLeft{
+            position:absolute;
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            background:blanchedalmond;
+            clip:rect(0px 100px 200px 0px);
+            z-index:5;
+        }
+        .arcRight{
+            position:absolute;
+            width:200px;
+            height:200px;
+            border-radius:50%;
+            background:blanchedalmond;
+            clip:rect(0px 200px 200px 100px);
+            z-index:5;
+        }
+        .arcContent{
+            position:absolute;
+            width:120px;
+            height:120px;
+            margin:calc(50% - 60px);
+            border-radius:50%;
+            background:#FFF;
+            text-align:center;
+            line-height:120px;
+            z-index:7;
+        }
+        input{
+            width: 155px;
+            margin-top:25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="pieChart">
+    <div class="arcLeft"></div>
+    <div class="arcRight"></div>
+    <div class="arcContent">100</div>
+</div>
+<input type="number" min="1" max="360" placeholder="请输入旋转的度数"/>
+<button>旋转</button>
+<script src="../common/jquery/dist/jquery.js"></script>
+<script>
+    $('input').keyup(function(){
+        if($(this).val()>360||$(this).val()<0){
+            $('button').attr('disabled','true')
+            console.log('error')
+        }else{
+            $('button').removeAttr('disabled');
+        }
+    })
+    $('button').click(function(){
+        var qq = $('input').val();
+        arcRotate({
+            rotateDeg:qq,//旋转的度数
+            bigRoundColor:'lightblue',//大圆背景颜色
+            halfRoundColor:'blanchedalmond',//半圆背景色
+            bigRoundWidth:200,//大圆宽度
+            smallRoundWidth:120,//小圆宽度
+            textColor:'#FFF',//字体颜色
+            time:1800,//旋转一圈所用时间
+        });
+    })
+    function arcRotate(a){
+        var times = a.time/360;//一度旋转时间
+        $('.arcLeft').css('transform','rotateZ(0deg)');
+        $('.arcRight').css({
+            'transform':'rotateZ(0deg)',
+            'background': a.halfRoundColor,
+            'z-index':'5'
+        });
+        if(a.rotateDeg <= 180){
+            var arcDeg = 1;
+            var rightRound = setInterval(function(){
+                $('.arcRight').css('transform','rotateZ('+arcDeg+'deg)');
+                arcDeg++;
+                if(arcDeg>a.rotateDeg){
+                    clearInterval(rightRound);
+                    $('.arcRight').css('transform','rotateZ('+a.rotateDeg+'deg)');
+                }
+            },times);
+        }
+        else if(a.rotateDeg<=360&&a.rotateDeg>180){//先左边旋转180度再旋转右边的
+            var arcDeg1 = 1;
+            var rightRound = setInterval(function(){
+                $('.arcRight').css('transform','rotateZ('+arcDeg1+'deg)');
+                arcDeg1++;
+                if(arcDeg1>180){
+                    $('.arcRight').css('transform','rotateZ(0deg)');//还原右半圆状态
+                    $('.arcRight').css({
+                        'background': a.bigRoundColor,
+                        'z-index':'6'
+                    });
+                    clearInterval(rightRound);
+                    //左半圆旋转开始
+                    var arcDeg = 1;
+                    a.rotateDeg = a.rotateDeg - 180;
+                    var leftRotate = setInterval(function(){
+                        $('.arcLeft').css('transform','rotateZ('+arcDeg+'deg)');
+                        arcDeg++;
+                        if(arcDeg>a.rotateDeg){
+                            clearInterval(leftRotate);
+                            $('.arcLeft').css('transform','rotateZ('+a.rotateDeg+'deg)');
+                        }
+                    },times);
+                }
+            },times);
+        }
+    }
+</script>
+</body>
+</html>

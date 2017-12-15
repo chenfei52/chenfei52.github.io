@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>showMyPhotos</title>
+        <link rel="stylesheet" href="../../common/my/common.css">
+        <style>
+            /*隐藏显示*/
+            .cf_show{
+                display:block !important;
+            }
+            .cf_show_in{
+                display:inline-block !important;
+            }
+            .cf_hide{
+                display:none !important;
+            }
+
+            /*省略号*/
+            .cf_ellipsis{
+                overflow:hidden !important;
+                text-overflow:ellipsis;
+                white-space:nowrap;
+            }
+
+            /*清除按钮默认样式*/
+            .cf_clearButton{
+                border:none !important;
+                outline:none !important;
+            }
+
+            /*水平垂直居中*/
+            .cf_middle{
+                position:absolute;
+                top:50%;
+                left:50%;
+                transform:translate(-50%,-50%);
+                -webkit-transform:translate(-50%,-50%);
+                -o-transform:translate(-50%,-50%);
+                -moz-transform:translate(-50%,-50%);
+                -ms-transform:translate(-50%,-50%);
+            }
+            .cf_middle2{
+                position:relative;
+                top:0;
+                right:0;
+                bottom:0;
+                left:0;
+                margin:auto;
+            }
+        </style>
+        <link rel="stylesheet" href="css/showMyPhotos.css">
+    </head>
+    <body>
+        <div class="header">
+            <h1>Show My Photos</h1>
+            <!--<input placeholder="请输入你的文件地址" />-->
+        </div>
+
+        <div class="main">
+            <div class="setting">
+                <select id="showType">
+                    <option value="1">立方体切换</option>
+                    <option value="2">百叶窗效果</option>
+                    <option value="3">渐入切换</option>
+                </select>
+                <input id="rotateTime" type="text" placeholder="动画时间(ms)" />
+                <input id="delayTime" type="text" placeholder="延迟时间(ms)" />
+                <input id="rotateNum" type="text" placeholder="切割块数" />
+                <button id="setting">设置</button>
+            </div>
+
+            <div class="cf_showArea">
+                <!--展示区域，需要设置宽高-->
+            </div>
+
+        </div>
+
+        <script src="../../common/jquery/dist/jquery.js"></script>
+        <script src="js/showMyPhotos.js"></script>
+    </body>
+    </html>

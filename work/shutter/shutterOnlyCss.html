@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>纯CSS实现百叶窗切换效果</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #pictureContainer{
+            position:relative;
+            width:533px;
+            height:300px;
+            margin:200px auto;
+            /*3D堆叠元素*/
+            transform-style: preserve-3d;
+            /*不能设置overflow*/
+        }
+        #pictureContainer img{
+            position:absolute;
+            width:550px;
+            height:300px;
+            transition:1s;
+        }
+        #pictureContainer .firstPicture{
+            transform:rotateY(180deg);
+        }
+        #pictureContainer .secondPicture{
+            transform:rotateY(0deg) translateZ(1px);
+        }
+        #pictureContainer:hover .firstPicture{
+            transform:rotateY(0deg);
+        }
+        #pictureContainer:hover .secondPicture{
+            transform:rotateY(-180deg) translateZ(1px);
+            /*保证旋转方向一致*/
+        }
+        #pictureContainer img:nth-child(1),#pictureContainer img:nth-child(6){
+            clip:rect(0,110px,300px,0);
+            transform-origin:55px 0px;
+        }
+        #pictureContainer img:nth-child(2),#pictureContainer img:nth-child(7){
+            clip:rect(0,220px,300px,110px);
+            transform-origin:165px 0px;
+            transition-delay:200ms;
+        }
+        #pictureContainer img:nth-child(3),#pictureContainer img:nth-child(8){
+            clip:rect(0,330px,300px,220px);
+            transform-origin:275px 0px;
+            transition-delay:400ms;
+        }
+        #pictureContainer img:nth-child(4),#pictureContainer img:nth-child(9){
+            clip:rect(0,440px,300px,330px);
+            transform-origin:385px 0px;
+            transition-delay:600ms;
+        }
+        #pictureContainer img:nth-child(5),#pictureContainer img:nth-child(10){
+            clip:rect(0,550px,300px,440px);
+            transform-origin:495px 0px;
+            transition-delay:800ms;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="pictureContainer">
+    <img src="images/shaosiming1.jpg" class="firstPicture"/>
+    <img src="images/shaosiming1.jpg" class="firstPicture"/>
+    <img src="images/shaosiming1.jpg" class="firstPicture"/>
+    <img src="images/shaosiming1.jpg" class="firstPicture"/>
+    <img src="images/shaosiming1.jpg" class="firstPicture"/>
+
+
+    <img src="images/shaosiming2.jpg" class="secondPicture"/>
+    <img src="images/shaosiming2.jpg" class="secondPicture"/>
+    <img src="images/shaosiming2.jpg" class="secondPicture"/>
+    <img src="images/shaosiming2.jpg" class="secondPicture"/>
+    <img src="images/shaosiming2.jpg" class="secondPicture"/>
+</div>
+</body>
+</html>

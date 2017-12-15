@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>拖动添加/排序</title>
+        <style>
+            *{margin:0px;}
+            .cf_dragorder_big{
+                width:324px;
+                height:324px;
+                border:1px solid black;
+                margin:auto;
+                margin-top:10px;
+                font-size:80px;
+                overflow:hidden;
+            }
+            .cf_dragorder_small{
+                cursor:move;
+                width:100px;
+                height:100px;
+                border:1px solid #0000FF;
+                float:left;
+                margin:3px;
+                text-align: center;
+                overflow:hidden;
+            }
+            .float{
+                width:102px;
+                height:102px;
+                margin:3px;
+                float:left;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="first" class="cf_dragorder_big">
+            <div draggable="true" id="a" class="cf_dragorder_small" >1</div>
+            <div draggable="true" id="b" class="cf_dragorder_small">2</div>
+            <div draggable="true" id="c" class="cf_dragorder_small">3</div>
+            <div draggable="true" id="d" class="cf_dragorder_small">4</div>
+            <div draggable="true" id="e" class="cf_dragorder_small">5</div>
+            <div draggable="true" id="f" class="cf_dragorder_small">6</div>
+            <div draggable="true" id="g" class="cf_dragorder_small">7</div>
+            <div draggable="true" id="h" class="cf_dragorder_small">8</div>
+            <div draggable="true" id="j" class="cf_dragorder_small">9</div>
+        </div>
+        
+        <div id="second" class="cf_dragorder_big">
+        </div>
+
+        <script src="../common/jquery/dist/jquery.js"></script>
+        <script>
+            var top1=document.getElementById("first");
+            var down=document.getElementById("second");
+            var length=document.getElementsByClassName("cf_dragorder_small");
+//悬停
+            down.ondragover = function (ev)
+            {
+                dragover(ev);
+            }
+            top1.ondragover = function (ev)
+            {
+                dragover(ev);
+            }
+            function dragover(ev)
+            {
+                //添加撑开元素
+                ev.preventDefault();
+                if(ev.target.className=="cf_dragorder_small")
+                    {
+                        if($(".float").length>0)
+                        {
+                            $(".float").remove();
+                        }
+                        var idd=ev.target.id;
+                        $("#"+idd+"").before("<div class='float'></div>");
+                    }
+            }
+//开始移动
+            for(var i=0; i<length.length; i++)
+            {
+                length[i].ondragstart = function(ev)
+                {
+                    ev.dataTransfer.setData("Text",ev.target.id);
+                    //拖拽元素随鼠标移动
+                }
+            }
+//放下
+            down.ondrop = function (ev)
+            {
+                dragdrop(ev);
+            }
+            top1.ondrop = function (ev)
+            {
+                dragdrop(ev);
+            }
+            function dragdrop(ev)
+            {
+                ev.preventDefault();
+                var data=ev.dataTransfer.getData("Text");
+                if(ev.target.className=="cf_dragorder_small")
+                {
+                    //实现排序
+                    var idd=ev.target.id;
+                    $("#"+idd+"").before(document.getElementById(data));
+                    //ev.target.parentNode.appendChild(document.getElementById(data));
+                }
+                else if(ev.target.className=="float")
+                {
+                    $(".float").before(document.getElementById(data));
+                }
+                else
+                {
+                    ev.target.appendChild(document.getElementById(data));
+                }
+                $(".float").remove();
+            }
+            $(document).mousemove(function(ev){$(".float").remove();})
+//双击切换位置
+            $("#first").on("dblclick",".cf_dragorder_small",function(){
+                $("#second").append(this);
+            });
+            $("#second").on("dblclick",".cf_dragorder_small",function(){
+                $("#first").append(this);
+            })
+        </script>
+    </body>
+</html>

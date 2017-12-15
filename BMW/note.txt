@@ -1,5 +1,0 @@
-参考网站:
-http://files.portnine.com/bootstrap-themes/AircraftAdmin/1.0/preview/sign-in.html
-
-
-http://192.168.3.111:7703/xadmin/ 用户名：admin 密码：admin123！@#

@@ -1,0 +1,84 @@
+<!DOCTYPE html><html>
+<head>
+    <meta charset="utf-8"/>
+    <title>文字编码</title>
+    <style>
+        div.content{
+            width:1000px;
+            margin:0 auto;
+        }
+        span.show{
+            display: inline-block;
+            margin-top:10px;
+            font-weight: 600;
+        }
+        span.showtext{
+            word-break: break-all;
+            font-weight: 400;
+        }
+        div.content button{
+            margin-left:12px;
+            border: 1px solid #EEE;
+            border-radius: 3px;
+            background: none;
+            outline: none;
+            cursor:pointer;
+        }
+        div.content button:hover{
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h3>编码</h3>
+        <div>
+            <input id="unicode" type="text"/><button id="toUnicode">编码</button>
+            <br/><span id="text" class="show">编码结果:&nbsp;&nbsp;<span class="showtext"></span></span>
+        </div>
+        <h3>解码</h3>
+        <div>
+            <input id="unicode1" type="text"/><button id="toUnicode1">解码</button>
+            <br/><span id="text1" class="show">解码结果:&nbsp;&nbsp;<span class="showtext"></span></span>
+        </div>
+
+    </div>
+
+<script>
+    var toUnicode = document.getElementById('toUnicode');
+    toUnicode.addEventListener('click',function(){
+        var text = document.getElementById('unicode').value,str=[];
+        for(var i = 0;i<text.length;i++){
+            str.push(text.charCodeAt(i));
+        }
+        str.forEach(function(val,j){
+            str[j] = String(val.toString().length) + val;
+        });
+        document.getElementById('text').getElementsByTagName('span')[0].innerHTML = str.join('');
+    });
+
+    var toUnicode1 = document.getElementById('toUnicode1');
+    toUnicode1.addEventListener('click',function(){
+        function getOneCode(num){
+            num = String(num);
+            var first = num.slice(0,1);
+            var codenum = num.slice(1,Number(first)+1);
+
+            str += String.fromCharCode(codenum);
+            num = num.slice(Number(first)+1);
+            if(String(num).length>0){
+                getOneCode(num);
+            }
+        }
+
+        var text = document.getElementById('unicode1').value,str='';
+        getOneCode(text);
+
+//        for(var i = 0;i<text.length;i++){
+//            str += String.fromCharCode(text[i]);
+//        }
+        document.getElementById('text1').getElementsByTagName('span')[0].innerHTML = str;
+    })
+</script>
+</body>
+</html>

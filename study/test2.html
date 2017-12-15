@@ -4,21 +4,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #test{
-            width:200px;
-            height:200px;
-            border:1px solid #0fade0;
+        header{
+            color:red
         }
     </style>
 </head>
 <body>
-    <div id="test"></div>
+    <header>
+        这是标题哦
+    </header>
+
+    <div id="div">
+        <p id="p">
+            hahh
+        </p>
+    </div>
 
     <script>
-        var element = document.getElementById('test');
-        console.log(element.parentWindow);
-        console.log(element.defaultView);
-        console.log(parent);
+        function test(){
+            var p = document.getElementById('p');
+            p.onclick = function(){
+                console.log(this.innerText);
+            };
+            p = null;
+        }
+        test();
     </script>
 </body>
 </html>

@@ -30,6 +30,10 @@
 <a href="https://www.baidu.com/" target="_self">当前页面</a>
 
 <script>
+
+    setTimeout(function(){
+        console.log('定时器执行了');
+    },1000)
     var event = document.getElementById('event');
     event.addEventListener('mousedown',function(e){
         console.log(e.button);

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="maxDay" type="text" placeholder="请输入年月格式:(2016-02)" /><button class="maxDay">点击获取此月最后一天</button><span class="showMaxDay"></span>
+
+<br/><br/><br/><br/><br/><br/>
+
+<input id="AllDayStart" type="text" placeholder="请输入年月格式:(2016-02-01)" /><input id="AllDayEnd" type="text" placeholder="请输入年月格式:(2016-03-25)" />
+<button class="allDay">点击获取日期内每一天</button><span class="showAllDay"></span>
+
+<br/><br/><br/><br/><br/><br/>
+
+<input id="getDay" type="text" placeholder="请输入获取几天前的" />
+<button class="getDay">点击获取指定天数前日期</button><span class="showAllDay"></span>
+
+
+</body>
+
+    <script src="../common/jquery/dist/jquery.js"></script>
+    <script>
+
+        $('button.maxDay').click(function(){
+            var time = dateOperate.getMonthMaxDay($('#maxDay').val());
+            $('.showMaxDay').html(time);
+        })
+        $('button.allDay').click(function(){
+            var time = dateOperate.getAllDay($('#AllDayStart').val(),$('#AllDayEnd').val());
+            console.log(time)
+        })
+        $('button.getDay').click(function(){
+            var pointerTime = '2016/10/5';
+            var time = dateOperate.getPointerDay($('#getDay').val(),1,pointerTime);
+            console.log(time)
+        });
+
+        var dateOperate = {
+
+            addZero:function(n){
+                if(n<10){
+                    n = '0'+n;
+                }
+                return n;
+            },
+
+            //获取某月的最后一天
+            getMonthMaxDay:function (time){
+                var ym = time,
+                        date = ym.split('-'),
+                        year = Number(date[0]),
+                        month = Number(date[1]);
+                if(date[1]==12){
+                    year = year+1;
+                    month = 12;
+                }
+                /*
+                 * 取月份时需要+1 而设置月份时要比实际要设的-1
+                 * */
+                var nm = new Date (year,month,1);
+                var max = new Date(nm-24*60*60*1000).getDate();
+                return max;
+            },
+
+            //获取两个日期内的每一天
+            getAllDay:function (startTime,endTime){
+                var start = new Date(startTime).getTime(),
+                        end = new Date(endTime).getTime(),
+                        dates = [];
+                for(var k =start;k<end-1;){
+                    //此循环若内部k值无变化 将一直循环下去
+                    k = k+24*60*60*1000;
+                    var date = new Date(k),
+                            year = date.getFullYear(),
+                            month = date.getMonth()+1,
+                            day = date.getDate();
+                    if(month<10){
+                        month = '0'+month;
+                    }
+                    if(day<10){
+                        day = '0'+day;
+                    }
+                    var time = year+'-'+month+'-'+day;
+                    //var time = year+'/'+month+'/'+day;
+                    dates.push(time);
+                }
+                return dates;
+            },
+
+            //获取指定日期前/后n天
+            getPointerDay:function(n,pointerTime,after){
+                var _this =this;
+                var time = new Date();
+                if(pointerTime){
+                    time = new Date(pointerTime);
+                }
+                time = time.getTime();
+                if(after){
+                    time = time + n*24*3600*1000;
+                }else{
+                    time = time - n*24*3600*1000;
+                }
+                time = new Date(time);
+                time = time.getFullYear()+'-'+_this.addZero(time.getMonth()+1)+'-'+_this.addZero(time.getDate())+' '+_this.addZero(time.getHours())+':'+_this.addZero(time.getMinutes())+':'+_this.addZero(time.getSeconds());
+                //time = time.getFullYear()+'/'+_this.addZero(time.getMonth()+1)+'/'+_this.addZero(time.getDate())+' '+_this.addZero(time.getHours())+':'+_this.addZero(time.getMinutes())+':'+_this.addZero(time.getSeconds());
+                return time;
+            }
+
+        }
+    </script>
+
+</html>

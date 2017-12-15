@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>myself_pop-up</title>
+    <style>
+        html,body{
+            margin:0;
+            padding:0;
+            font-family:Microsoft Yahei;
+        }
+        .cf_shadow{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        .cf_popup{
+            position:absolute;
+            top:0;
+            right:0;
+            bottom:0;
+            left:0;
+            margin:auto;
+            border-radius: 3px;
+            background-color:#FFF;
+        }
+        .cf_popup .popupTitle{
+            position:relative;
+            user-select:none;
+            -webkit-user-select:none;
+            -ms-user-select:none;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 10px 15px;
+            font-weight:600;
+            color: #2f2f2f;
+            border-bottom: 1px solid #CCC;
+            cursor:move;
+        }
+        .cf_popup .closePopup{
+            float:right;
+            font-weight:600;
+            color:gray;
+            transition:300ms;
+            cursor: pointer;
+        }
+        .cf_popup .closePopup:hover{
+            color:black;
+            transform:rotateZ(90deg);
+            -webkit-transform:rotateZ(90deg);
+            -moz-transform:rotateZ(90deg);
+            -ms-transform:rotateZ(90deg);
+            -o-transform:rotateZ(90deg);
+        }
+        .cf_popup .popupContent{
+            position:relative;
+            overflow:hidden;
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+    <button id="click">弹出框</button>
+    <script src="my_pop-up.js"></script>
+</body>
+</html>
