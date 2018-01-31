@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        header{
-            color:red
-        }
-    </style>
 </head>
 <body>
-    <header>
-        这是标题哦
-    </header>
 
-    <div id="div">
-        <p id="p">
-            hahh
-        </p>
-    </div>
-
+<div id="json">
+</div>
+<script src="../common/jquery/dist/jquery.min.js"></script>
+<script src="test/jsonFormater.js"></script>
+<script src="../common/highlight/highlight.js"></script>
     <script>
-        function test(){
-            var p = document.getElementById('p');
-            p.onclick = function(){
-                console.log(this.innerText);
-            };
-            p = null;
-        }
-        test();
+        $(document).ready(function(){
+            var observer = new MutationObserver(function(a, b){
+                console.log(a);
+                console.log(b);
+            });
+            observer.observe(document.getElementById('json'), {});
+
+            $('#json').html('hello');
+            $('#json').html('hello2');
+            $('#json').html('hello3');
+            $('#json').html('hello4');
+            $('#json').html('hello5');
+            $('#json').html('hello6');
+        })
     </script>
 </body>
 </html>

@@ -18,7 +18,7 @@
 </head>
 <body>
 <div id="container">
-    <video id="video" src="http://172.16.133.211:86/bucket-p/streamings/biz_sobey_video/2017/06/19/videogroup_f581c721c66c432da6859a8d0f14443a_0.mp4" controls></video>
+    <video id="video" src="http://172.16.133.211:86/bucket-p/streamings/biz_sobey_video/2017/06/19/videogroup_f581c721c66c432da6859a8d0f14443a_0.mp4?t=1&y=2" controls></video>
 </div>
 <button id="pause">暂停</button>
 <button id="play">播放</button>
@@ -29,7 +29,12 @@
 <a href="https://www.baidu.com/" target="_blank">新开页面</a>
 <a href="https://www.baidu.com/" target="_self">当前页面</a>
 
+<div style="position:relative;left:400px;width:20px;height:20px;border:1px solid #eee;overflow:hidden;">
+    <div style="position:absolute;left:-200px;width:20px;height:20px;background-color:red;"></div>
+</div>
+
 <script>
+    console.log(document.body.innerHTML);
 
     setTimeout(function(){
         console.log('定时器执行了');
@@ -54,6 +59,7 @@
     document.DOMContentLoaded = function(){
         console.log('事件触发2');
     };
+
 
 
 
@@ -135,6 +141,9 @@
             }
         });
     }
+    setTimeout(function(){
+        console.log(document.getElementById('video').duration);
+    }, 1000);
     initVideo(document.getElementById('video'));
     remove.onclick = function(){
         video.parentNode.removeChild(video);
