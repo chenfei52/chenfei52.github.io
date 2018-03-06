@@ -1,0 +1,187 @@
+/*created by cf on 2016/12/26*/
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -o-user-select:none;
+    overflow:hidden;
+}
+
+/*header start*/
+.header input{
+    width: 210px;
+    height: 26px;
+    float: right;
+    margin-top: 8px;
+    line-height: 26px;
+    text-align: center;
+    color: #155d74;
+    font-size: 16px;
+    border: 1px solid #7daebe;
+    outline-color: #1f586b;
+}
+/*header end*/
+
+/*main start*/
+.main{
+    width:100%;
+}
+.setting{
+    padding: 80px 25px;
+    text-align:right;
+}
+.setting select{
+    border: 1px solid #1b7890;
+    height: 20px;
+    color: #054b5d;
+}
+.setting input{
+    width: 85px;
+    text-align: center;
+    border: 1px solid #1b7890;
+    height: 18px;
+}
+.setting button{
+    outline: none;
+    border: none;
+    height: 20px;
+    padding: 0 10px;
+    margin-left: 2px;
+    background: #229bb9;
+    color: #FFF;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.setting button:hover{
+    background: #1ab1d6;
+}
+.setting button:active{
+    background: #229bb9;
+}
+.cf_showArea {
+    position:relative;
+    width: 800px;
+    height: 450px;
+    margin: 0 auto;
+    text-align:center;
+}
+.cf_showArea .cf_container{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+.cf_showArea .cf_left, .cf_showArea .cf_right{
+    position:absolute;
+    top:0;
+    width:10%;
+    min-width:60px;
+    height:100%;
+    z-index:2;
+}
+.cf_showArea .cf_left{
+    left:0px;
+}
+.cf_showArea .cf_left:hover,.cf_showArea .cf_right:hover{
+    background: rgba(34, 34, 34,0.25);
+}
+.cf_showArea .cf_left:hover .cf_prev{
+    opacity:1;
+}
+.cf_showArea .cf_right{
+    right:0px;
+}
+.cf_showArea .cf_right:hover .cf_next{
+    opacity:1;
+}
+.cf_showArea .cf_prev,.cf_showArea .cf_next{
+    position:absolute;
+    width:60px;
+    height:60px;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+    background-size:100% 100%;
+    z-index:3;
+    opacity:0;
+    cursor:pointer;
+    transition: 0.3s;
+}
+.cf_showArea .cf_prev{
+    left:0;
+    background:url(../img/prev.png);
+    background-size:100% 100%;
+}
+.cf_showArea .cf_next{
+    right:0;
+    background:url(../img/next.png);
+    background-size:100% 100%;
+}
+.cf_prev:hover{
+    background:url(../img/prev_1.png);
+    background-size:100% 100%;
+}
+.cf_next:hover{
+    background:url(../img/next_1.png);
+    background-size:100% 100%;
+}
+.cf_container .img{
+    position:absolute;
+    width:100%;
+    height:100%;
+    transform-style:preserve-3d;
+    -webkit-transform-style:preserve-3d;
+}
+.cf_container .img img{
+    position:absolute;
+}
+.cf_index{
+    position:absolute;
+    bottom:0px;
+    padding:25px 15px;
+    list-style:none;
+    z-index:200;
+    left:50%;
+    transform:translate(-50%,0)
+}
+.cf_index:hover li{
+    visibility:visible;
+}
+.cf_index li{
+    float:left;
+    width:10px;
+    height:10px;
+    margin:0 5px;
+    visibility:hidden;
+    border-radius:50%;
+    box-shadow:0 0 2px #005cff;
+    background:#FFF;
+    cursor:pointer;
+}
+li.cf_choosed{
+    background-color:#508fff;
+    box-shadow:0 0 5px #005cff;
+}
+.cf_index li:hover{
+    background-color:#5894fb;
+}
+.cf_container img{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.main .shadow{
+    width: 100%;
+    height: 83px;
+    background: #F1F6F7 url(../img/shadow.png);
+    background-size: 100% 100%;
+}
+
+/*main end*/

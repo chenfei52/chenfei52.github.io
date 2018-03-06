@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>右键菜单</title>
+        <style>
+            *{margin:0px;}
+            #cf_rightmenu_menu{
+                width:120px;
+                height:120px;
+                border:1px solid #c9c9c9;
+                box-shadow: 0 0 2px #c9c9c9;
+                position: absolute;
+                z-index:9999;
+                background:white;
+                display:none;
+            }
+            #cf_rightmenu_menu ul{
+                margin: 0;
+                padding: 0;
+            }
+            #cf_rightmenu_menu li{
+                list-style:none;
+                width:120px;
+                height:30px;
+                line-height:30px;
+                text-align: center;
+                border-bottom: 1px solid #eee;
+            }
+            #cf_rightmenu_menu li:nth-last-child(1){
+                border-bottom: 1px solid transparent;
+            }
+            #cf_rightmenu_menu li:hover{
+                background:#3f92ad;
+                color: #FFF;
+                cursor: pointer;
+            }
+            #cf_rightmenu_cover{
+                position:absolute;
+                z-index:8888;
+                left: 0;
+                top: 0;
+            }
+
+            #cf_rightmenu_table{
+                width: 800px;
+                margin: 100px auto;
+                border-collapse: collapse;
+                z-index: 9555;
+            }
+            #cf_rightmenu_table thead tr{
+                background: #225a87;
+                color: #FFF;
+            }
+            #cf_rightmenu_table tbody tr:nth-child(even){
+                background: #EEE;
+            }
+            #cf_rightmenu_table tbody tr:hover{
+                background: #ddd;
+            }
+            #cf_rightmenu_table th,
+            #cf_rightmenu_table td{
+                padding: 10px;
+                border: 1px solid #cecece;
+                cursor:pointer;
+            }
+        </style>
+
+    </head>
+    <body oncontextmenu="return false">
+        <div id="cf_rightmenu_menu">
+            <ul>
+                <li>重新购买</li>
+                <li>查看详情</li>
+                <li>删除记录</li>
+                <li>咨询客服</li>
+            </ul>
+        </div>
+        <table id="cf_rightmenu_table" cellspacing="0">
+            <thead>
+                <tr><th>产品名</th><th>价格</th><th>购买时间</th><th>状态</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>乐心智能手环</td><td>￥180</td><td>2017/5/2 15:46:25</td><td>配送中</td></tr>
+                <tr><td>牛肉干</td><td>￥148</td><td>2017/3/5 23:24:03</td><td>退款</td></tr>
+                <tr><td>灭蚊灯</td><td>￥138</td><td>2017/3/4 08:56:45</td><td>交易完成</td></tr>
+                <tr><td>户外手表</td><td>￥2690</td><td>2016/2/28 09:35:58</td><td>交易完成</td></tr>
+                <tr><td>iphone8</td><td>￥6888</td><td>2016/11/2 14:12:14</td><td>交易完成</td></tr>
+            </tbody>
+        </table>
+        <div id="cf_rightmenu_cover"></div>
+        <script src="../common/jquery/dist/jquery.js"></script>
+        <script>
+                    var windowwidth;
+                    var windowheight;
+                    var hide;
+            $("#cf_rightmenu_table").bind("contextmenu",function(e){
+                    windowwidth=$(window).width();
+                    windowheight=$(window).height();
+                    hide=0;
+                $("#cf_rightmenu_cover").css({
+                    'width':windowwidth,
+                    'height':windowheight
+                });
+                $("#cf_rightmenu_menu").show();
+                $("#cf_rightmenu_menu").css({
+                    'top':e.pageY+'px',
+                    'left':e.pageX+'px'
+                });
+            });
+            //调整覆盖层
+            $("#cf_rightmenu_cover").contextmenu(function(){
+                hide=1;
+                $(this).height(0);
+                $(this).width(0);
+                $("#cf_rightmenu_menu").hide();
+            });
+            $("#cf_rightmenu_cover").click(function(){
+                hide=1;
+                $(this).height(0);
+                $(this).width(0);
+                $("#cf_rightmenu_menu").hide();
+            });
+            $(window).resize(function(){
+                windowwidth=$(window).width();
+                windowheight=$(window).height();
+                if(hide==0){
+                    $("#cf_rightmenu_cover").css({
+                    'width':windowwidth,
+                    'height':windowheight
+                });
+                }
+            })
+        </script>
+    </body>
+</html>

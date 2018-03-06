@@ -4,84 +4,124 @@
     <meta charset="UTF-8">
     <title>时间线样式测试</title>
     <style>
-        i:after{
+        i:after {
             content: ' 哈哈';
-            display:inline-block;
-            color:red;
+            display: inline-block;
+            color: red;
         }
     </style>
 </head>
 <body>
-<select name="" id="select">
-    <option value="1111">1111</option>
-    <option value="1111">1112</option>
-    <option value="1111">1113</option>
-</select>
-<input type="text" id="qwer" >
-<label for="select">sdsd</label>
 
+<div>
+    <img src="SZMG.png" alt="">
+</div>
 
-    <input type="text" value="张三,李四,陈6,王7,程8" />
-    <button>click</button>
-    1111
-    <script>
-        var dom = document.getElementById('select');
-        var dom2 = document.getElementById('qwer');
-        dom.onclick = function(){
-            dom2.focus()
-        };
-
-
-        let input = document.querySelectorAll('input')[0];
-        input.onkeydown = function(e){
-            console.log(e);
-        }
-
-        let button = document.querySelectorAll('button')[0];
-        button.onclick = function(){
-            let data = '张三,李四,陈6,王7,程8'; //未修改前用户数据
-            let _data = input.value; //修改后用户数据
-            let startIndex;  //不同的起始索引位置
-            let endIndex;  //不同的结束索引位置
-            let same = 0;   //统计没删除的用户数目
-            let dataArray = data.split(',');
-            let _dataArray = _data.split(',');
-
-            for(let i = 0;i<_dataArray.length;i++){
-                if(_dataArray[i] !== dataArray[i]){
-                    startIndex = i;
-                    break;
-                }else{
-                    same ++;
-                }
-            }
-            for(let i = 0;i<_dataArray.length;i++){
-                if(_dataArray[_dataArray.length - i - 1] !== dataArray[dataArray.length - i - 1]){
-                    endIndex = dataArray.length - i - 1;
-                    break;
-                }else{
-                    same ++;
-                }
-            }
-
-            //判断是否多判断删除数目
-            if(_dataArray[startIndex] != dataArray[endIndex]){
-                let _start = _dataArray[startIndex];
-                let _end = dataArray[endIndex];
-//                if(_start.endsWith(_end)){
-//                    same ++;
-//                }
-                if(_start.lastIndexOf(_end) !== -1){
-                    if(_start.lastIndexOf(_end) + _end.length === _start.length){
-                        same ++;
-                    }
-                }
-            }
-
-            console.log(dataArray);
-            console.log('startIndex:' + startIndex);
-            console.log('delLength:' + (dataArray.length - same));
-        }
-    </script>
+<script>
+    var a = {
+        "contentId": "5230d5391f7f4beebe5feecfb904e0c4",
+        "name": "Annual U.S. Conference Of Mayors Held In D.C.",
+        "createDate": "2018-01-24 23:57:45",
+        "privilege": "public_S1",
+        "trimin": 0,
+        "trimout": 0,
+        "siteCode": "S1",
+        "type": "biz_sobey_picture",
+        "keyframe": "http://10.116.8.1:9020/u-7k22iwh4zs4hz0b5/keyframes/biz_sobey_picture/2018/…20171220192216&Expires=1521094628&Signature=n5P9aTa94rB4cFSoy747h8I1ZTs%3D",
+        "treePath": "global_sobey_defaultclass/public/北京共享区/互联网回传/法新社/20180124",
+        "fileExt": "JPG",
+        "fileSize": "476416",
+        "extendData": {
+            "createUser": "新闻专用",
+            "storagedUser": "新闻专用",
+            "storagedDate": "2018-01-24 23:57:45",
+            "frameRate": 0,
+            "contentId": "5230d5391f7f4beebe5feecfb904e0c4",
+            "desc": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head><title></title></",
+            "name": "Annual U.S. Conference Of Mayors Held In D.C.",
+            "type": "picture",
+            "modifyDate": "0001-01-01 00:00:00",
+            "lastUpdateDate": "0001-01-01 00:00:00",
+            "isCollected": false,
+            "isFavorite": false,
+            "collectionTime": "0001-01-01 00:00:00",
+            "collectionIsDeleted": false,
+            "keyword": "GettyImageRank2;3329;Mitchell Landrieu;",
+            "treePath": "global_sobey_defaultclass/public/北京共享区/互联网回传/法新社/20180124",
+            "distributionMark": "DEFAULT",
+            "isPickedup": false,
+            "isPlaceholder": 0,
+            "isPublish": 1,
+            "privilege_": "public_S1",
+            "resourceType": "0",
+            "meterialLabel": [],
+            "dynamicResponse": {
+                "keywords_": "Of Held Mayors Conference",
+                "summary_": "DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http。",
+                "columnFacet": "defaultCategory",
+                "smart_face_name_facet_": "",
+                "tree_k_": "Daabaaf00000y00r00f",
+                "entity_type_": "biz_sobey_picture",
+                "privilegeFacet_": "public_S1",
+                "clipsource": "95746",
+                "_identity_": "entity",
+                "channel": "",
+                "fileGroupNames_": "keyframe_ picturegroup preview_file_",
+                "lastUpdateUser_": "6564336538633738303231333436623161383939366132666562623666373831",
+                "tree_": "Daabaaf00000y00r00f",
+                "lastUpdateDate_": "2018-01-24 23:57:45",
+                "previewFile_": "http://10.116.8.1:9020/u-55es1ggscw5c2nz0/streamings/biz_sobey_picture/2018…171220192216&Expires=1521094628&Signature=sNcUP6aAehNjO%2FrC3FUU8ECKFyA%3D",
+                "fileCount_": "1",
+                "namespace_": "biz_sobey_picture",
+                "version_": "1516809465252",
+                "fileSize_": "476416",
+                "region_": "BeiJingAZ2",
+                "system_": "OCEAN",
+                "column": "公共栏目",
+                "journallist": "新闻专用",
+                "category": "法新社图文稿",
+                "siteName": "S1",
+                "site_": "S1",
+                "_version_": "1590490015000952832",
+                "score": "4.5426054"
+            },
+            "catalogstate": "0",
+            "fileExt": "JPG",
+            "keyframe": "http://10.116.8.1:9020/u-7k22iwh4zs4hz0b5/keyframes/biz_sobey_picture/2018/…20171220192216&Expires=1521094628&Signature=n5P9aTa94rB4cFSoy747h8I1ZTs%3D",
+            "fileSize": "476416",
+            "siteCode": "S1",
+            "isMy": false,
+            "formatFlag": 0,
+            "canRead": true,
+            "canWrite": true,
+            "canExecute": true,
+            "canDelete": true
+        },
+        "department": "",
+        "column": "公共栏目",
+        "note": "",
+        "content": "",
+        "createUser": "",
+        "keyword": "Of Held Mayors Conference",
+        "clipsource": "95746",
+        "description": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head><title></title></",
+        "streamingUrl": "http://10.116.8.1:9020/u-55es1ggscw5c2nz0/streamings/biz_sobey_picture/2018…171220192216&Expires=1521094628&Signature=sNcUP6aAehNjO%2FrC3FUU8ECKFyA%3D",
+        "keyFrameNo": -1,
+        "keyFrameUrl": "http://10.116.8.1:9020/u-7k22iwh4zs4hz0b5/keyframes/biz_sobey_picture/2018/…20171220192216&Expires=1521094628&Signature=n5P9aTa94rB4cFSoy747h8I1ZTs%3D",
+        "streamingFileItems": [{
+            "duration": 0,
+            "bitRate": 0,
+            "fileGUID": "333c95c85f924bc0034a3ecdf52333f7",
+            "filePath": "http://10.116.8.1:9020/u-55es1ggscw5c2nz0/streamings/biz_sobey_picture/2018…171220192216&Expires=1521094643&Signature=WfEaBkObT3t6T4P%2BMvYmRg3ZJ9Y%3D",
+            "frameRate": 0,
+            "size": "476416",
+            "height": 640,
+            "width": 560,
+            "groupName": "picturegroup",
+            "title": "Annual U.S. Conference Of Mayors Held In D.C."
+        }]
+    }
+    console.log(a);
+</script>
 </body>
 </html>

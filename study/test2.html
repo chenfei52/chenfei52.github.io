@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    #json{
+        width:-webkit-calc(100% - 500px);
+        background:lightskyblue;
+        height:200px;
+    }
+    video{
+        width:400px;
+        height:200px;
+    }
+</style>
 <body>
+<video src="http://172.16.133.211:86/bucket-k/streamings/biz_sobey_video/2018/01/11/videogroup_da42906fd5bc464cbab8bf2467de0690_0.mp4" controls="controls"></video>
 
-<div id="json">
-</div>
 <script src="../common/jquery/dist/jquery.min.js"></script>
 <script src="test/jsonFormater.js"></script>
 <script src="../common/highlight/highlight.js"></script>
-    <script>
-        $(document).ready(function(){
-            var observer = new MutationObserver(function(a, b){
-                console.log(a);
-                console.log(b);
-            });
-            observer.observe(document.getElementById('json'), {});
-
-            $('#json').html('hello');
-            $('#json').html('hello2');
-            $('#json').html('hello3');
-            $('#json').html('hello4');
-            $('#json').html('hello5');
-            $('#json').html('hello6');
-        })
-    </script>
 </body>
 </html>
